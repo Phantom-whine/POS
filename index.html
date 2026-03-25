@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>AL-Awadhi | Fast, Compliant SME Financing in UAE</title>
+     <link rel="icon" type="image/png" href="static/fav.png">
+    <meta name="description"
+        content="Al-Awadhi connects SMEs in the UAE with leading banks for fast, compliant financing, business loans, and merchant accounts. Apply online today.">
+    <meta name="keywords"
+        content="SME financing UAE, business loans Dubai, merchant financing, working capital, commercial loans UAE, business banking setup">
+    <meta name="robots" content="index, follow">
+
+    <!-- Premium Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="static/fav.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js (CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Phosphor Icons (CDN) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Premium Purple Theme
+                        brand: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea', // Primary Purple
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87', // Dark purple background
+                            950: '#3b0764',
+                        },
+                        // Replacing default gray with Slate for a cooler, modern tech feel
+                        gray: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 20px rgba(147, 51, 234, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hide Alpine components before initialization */
+        [x-cloak] {
+            display: none !important;
+        }
+
+        /* Custom shape for the split section background */
+        .circle-bg-pattern {
+            background-image: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 30.1%),
+                radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 50.1%);
+        }
+
+        /* Liquid gradient for the credit banner (Strictly Purple/Dark) */
+        .liquid-gradient {
+            background: linear-gradient(135deg, #0f172a 30%, transparent 100%),
+                radial-gradient(circle at 100% 50%, #7e22ce 0%, #c084fc 50%, #0f172a 100%);
+            background-size: cover;
+        }
+
+        /* Form background pattern */
+        .form-bg-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.03" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased bg-white selection:bg-brand-200 selection:text-brand-900">
+
+    <!-- Header / Navigation -->
+    <header x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="{ 'shadow-sm bg-white/95 backdrop-blur-md': scrolled, 'bg-white': !scrolled }"
+        class="sticky top-0 z-50 w-full border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="static/logo.png" alt="Logo" class="w-32">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-10 h-full">
+                    <!-- Dropdown -->
+                    <!-- Added a timer to x-data to prevent immediate disappearance -->
+                    <div x-data="{ open: false, timer: null }" @mouseenter="clearTimeout(timer); open = true"
+                        @mouseleave="timer = setTimeout(() => open = false, 150)"
+                        class="relative h-full flex items-center">
+
+                        <button @click="open = !open"
+                            class="text-gray-700 hover:text-purple-600 font-bold text-[15px] flex items-center gap-1.5 transition-colors h-full">
+                            Our Services
+                            <i class="ph ph-caret-down text-xs text-gray-400 mt-0.5 transition-transform duration-300"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+
+                        <!-- Wrapper with padding top acts as an invisible bridge for the mouse -->
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="transform opacity-0 scale-95 translate-y-2"
+                            x-transition:enter-end="transform opacity-100 scale-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="transform opacity-100 scale-100 translate-y-0"
+                            x-transition:leave-end="transform opacity-0 scale-95 translate-y-2"
+                            class="absolute left-0 top-[calc(100%-10px)] pt-4 z-50">
+
+                            <!-- Actual Dropdown Box -->
+                            <div
+                                class="w-[780px] rounded-[32px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 bg-white p-8">
+
+                                <!-- Dropdown Header -->
+                                <h3 class="text-[16px] font-extrabold text-gray-900 mb-6 px-3 tracking-tight">Our
+                                    Services</h3>
+
+                                <div role="menu" aria-orientation="vertical" class="grid grid-cols-2 gap-x-8 gap-y-2">
+
+                                    <!-- Left Column -->
+                                    <div class="flex flex-col gap-2">
+                                        <!-- Business Accounts -->
+                                        <a href="nested/business-account.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <!-- SVG Colors updated to Purple Palette -->
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M6 16.5H34M9 16.5V28.5M16 16.5V28.5M24 16.5V28.5M31 16.5V28.5M6 31.5H34V32.5C34 33.6046 33.1046 34.5 32 34.5H8C6.89543 34.5 6 33.6046 6 32.5V31.5ZM20 6L6 13.5H34L20 6Z"
+                                                        fill="#F3E8FF" />
+                                                    <path d="M20 6L6 13.5H34L20 6Z" fill="#D8B4FE" />
+                                                    <path d="M6 16.5H34" stroke="#A855F7" stroke-width="2"
+                                                        stroke-linecap="round" />
+                                                    <path d="M10 16.5V28.5M16 16.5V28.5M24 16.5V28.5M30 16.5V28.5"
+                                                        stroke="#A855F7" stroke-width="2" stroke-linecap="round" />
+                                                    <path d="M6 31.5H34" stroke="#D8B4FE" stroke-width="2"
+                                                        stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Business Accounts</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug">Effortless
+                                                    digital banking for SMEs</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Working Capital -->
+                                        <a href="nested/working-capital.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="10" y="14" width="6" height="18" rx="2" fill="#E9D5FF" />
+                                                    <rect x="20" y="20" width="6" height="12" rx="2" fill="#A855F7" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Working Capital</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug">Fast
+                                                    access to funds for daily<br>operations</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Merchant Financing -->
+                                        <a href="nested/merchant-pos.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M13 14H27V28C27 29.1046 26.1046 30 25 30H15C13.8954 30 13 29.1046 13 28V14Z"
+                                                        fill="#A855F7" />
+                                                    <rect x="15" y="16" width="10" height="6" rx="1" fill="#F3E8FF" />
+                                                    <path d="M14 9H26V14H14V9Z" fill="#D8B4FE" />
+                                                    <path d="M14 9L15 6H25L26 9" stroke="#D8B4FE" stroke-width="2"
+                                                        stroke-linecap="round" />
+                                                    <circle cx="16.5" cy="25.5" r="1.5" fill="white" />
+                                                    <circle cx="20.5" cy="25.5" r="1.5" fill="white" />
+                                                    <circle cx="24.5" cy="25.5" r="1.5" fill="white" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Merchant Financing - POS Loans</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug">Boost
+                                                    sales with quick POS-based<br>financing</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Credit Evaluation -->
+                                        <a href="nested/credit-assesment.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="20" cy="20" r="12" fill="#F3E8FF" />
+                                                    <path
+                                                        d="M20 10V12M20 28V30M10 20H12M28 20H30M12.9289 12.9289L14.3431 14.3431M25.6569 25.6569L27.0711 27.0711M12.9289 27.0711L14.3431 25.6569M25.6569 14.3431L27.0711 12.9289"
+                                                        stroke="#D8B4FE" stroke-width="2" stroke-linecap="round" />
+                                                    <path d="M20 20L24 16" stroke="#9333EA" stroke-width="3"
+                                                        stroke-linecap="round" />
+                                                    <circle cx="20" cy="20" r="3" fill="#9333EA" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Credit Evaluation</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug">How we
+                                                    assess credit profiles</p>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <!-- Right Column -->
+                                    <div class="flex flex-col gap-2">
+                                        <!-- Business Loans -->
+                                        <a href="nested/business-loan.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="20" cy="20" r="12" fill="#E9D5FF" />
+                                                    <path
+                                                        d="M22 15C20.8954 15 20 15.8954 20 17C20 18.1046 20.8954 19 22 19H23C24.1046 19 25 19.8954 25 21C25 22.1046 24.1046 23 23 23H17M18 15C16.8954 15 16 15.8954 16 17"
+                                                        stroke="#9333EA" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path d="M20 13V25" stroke="#9333EA" stroke-width="2"
+                                                        stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Business Loans</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug">Quick and
+                                                    flexible financing options</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Business Credit Cards -->
+                                        <a href="nested/business-card.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="8" y="12" width="24" height="16" rx="3" fill="#E9D5FF" />
+                                                    <path d="M8 17H32" stroke="#A855F7" stroke-width="3" />
+                                                    <rect x="12" y="22" width="6" height="3" rx="1" fill="#A855F7" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Business Credit Cards</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug">Smart
+                                                    spending with exclusive<br>rewards</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Commercial Loans -->
+                                        <a href="nested/commercial-financing.html"
+                                            class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-purple-50/50 transition-colors duration-200"
+                                            role="menuitem">
+                                            <div class="shrink-0 mt-1">
+                                                <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 18H18V30H11V18Z" fill="#D8B4FE" />
+                                                    <path d="M18 10H27V30H18V10Z" fill="#A855F7" />
+                                                    <rect x="21" y="13" width="3" height="3" fill="white"
+                                                        fill-opacity="0.8" />
+                                                    <rect x="21" y="18" width="3" height="3" fill="white"
+                                                        fill-opacity="0.8" />
+                                                    <rect x="21" y="23" width="3" height="3" fill="white"
+                                                        fill-opacity="0.8" />
+                                                    <rect x="13" y="21" width="3" height="2" fill="white"
+                                                        fill-opacity="0.8" />
+                                                    <rect x="13" y="25" width="3" height="2" fill="white"
+                                                        fill-opacity="0.8" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4
+                                                    class="text-[15px] font-bold text-gray-900 mb-0.5 group-hover:text-purple-600 transition-colors">
+                                                    Commercial Loans –<br>Small Business Finance</h4>
+                                                <p class="text-[13px] font-medium text-gray-500 leading-snug mt-1">
+                                                    Empowering small businesses with<br>flexible capital</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="about.html"
+                        class="text-gray-700 hover:text-purple-600 font-bold text-[15px] transition-colors">About</a>
+                    <a href="blog.html"
+                        class="text-gray-700 hover:text-purple-600 font-bold text-[15px] transition-colors">Blog</a>
+                    <a href="carrer.html"
+                        class="text-gray-700 hover:text-purple-600 font-bold text-[15px] transition-colors">Careers</a>
+                    <a href="loan.html"
+                        class="text-gray-700 hover:text-purple-600 font-bold text-[15px] transition-colors">Loan
+                        Calculator</a>
+                </nav>
+
+                <!-- CTA Button (Desktop) -->
+                <div class="hidden lg:flex items-center">
+                    <a href="contact.html"
+                        class="bg-purple-600 hover:bg-purple-700 text-white text-[15px] font-bold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2">
+                        Free Consultation
+                        <i class="ph ph-arrow-up-right text-base font-bold"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center lg:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 hover:text-purple-600 hover:bg-purple-50 focus:outline-none transition-colors">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="ph" :class="mobileMenuOpen ? 'ph-x text-2xl' : 'ph-list text-2xl'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div x-show="mobileMenuOpen" x-cloak
+            class="lg:hidden absolute top-20 inset-x-0 z-50 bg-white border-b border-gray-100 shadow-2xl overflow-y-auto max-h-[calc(100vh-80px)]"
+            x-transition:enter="duration-200 ease-out" x-transition:enter-start="opacity-0 -translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="duration-150 ease-in"
+            x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4">
+
+            <div class="px-4 pt-2 pb-6 space-y-1">
+
+                <!-- Mobile "Our Services" Accordion -->
+                <div x-data="{ servicesOpen: false }" class="border-b border-gray-50 pb-2 mb-2">
+                    <button @click="servicesOpen = !servicesOpen"
+                        class="w-full flex justify-between items-center px-4 py-3.5 rounded-xl text-base font-bold text-gray-900 hover:bg-purple-50 hover:text-purple-700 transition-colors">
+                        Our Services
+                        <i class="ph ph-caret-down transition-transform duration-300"
+                            :class="servicesOpen ? 'rotate-180 text-purple-600' : 'text-gray-400'"></i>
+                    </button>
+
+                    <div x-show="servicesOpen" x-collapse>
+                        <div class="px-4 py-3 grid grid-cols-1 gap-1">
+                            <a href="nested/business-account.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Business Accounts
+                            </a>
+                            <a href="nested/working-capital.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Working Capital
+                            </a>
+                            <a href="nested/merchant-pos.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Merchant Financing - POS Loans
+                            </a>
+                            <a href="nested/credit-assesment.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Credit Evaluation
+                            </a>
+                            <a href="nested/business-loan.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Business Loans
+                            </a>
+                            <a href="nested/business-card.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Business Credit Cards
+                            </a>
+                            <a href="nested/commercial-financing.html"
+                                class="flex items-center py-2.5 px-3 rounded-xl hover:bg-purple-50 text-gray-700 hover:text-purple-700 font-semibold transition-colors">
+                                Commercial Loans
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Mobile Links -->
+                <a href="about.html"
+                    class="block px-4 py-3.5 rounded-xl text-base font-bold text-gray-900 hover:bg-purple-50 hover:text-purple-700 transition-colors">About</a>
+                <a href="blog.html"
+                    class="block px-4 py-3.5 rounded-xl text-base font-bold text-gray-900 hover:bg-purple-50 hover:text-purple-700 transition-colors">Blog</a>
+                <a href="carrer.html"
+                    class="block px-4 py-3.5 rounded-xl text-base font-bold text-gray-900 hover:bg-purple-50 hover:text-purple-700 transition-colors">Careers</a>
+                <a href="loan.html"
+                    class="block px-4 py-3.5 rounded-xl text-base font-bold text-gray-900 hover:bg-purple-50 hover:text-purple-700 transition-colors">Loan
+                    Calculator</a>
+
+                <div class="mt-6 pt-6 border-t border-gray-100">
+                    <a href="contact.html"
+                        class="w-full flex justify-center items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white text-base font-bold py-3.5 px-6 rounded-full transition-colors">
+                        Free Consultation
+                        <i class="ph ph-arrow-up-right font-bold"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gray-900 py-24 lg:py-32 flex items-center min-h-[600px] xl:min-h-[750px]">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Business Handshake" class="w-full h-full object-cover object-center transform scale-105">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-900/90 to-brand-900/40 mix-blend-multiply">
+            </div>
+            <!-- Extra subtle gradient for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 to-transparent lg:hidden"></div>
+        </div>
+
+        <div class="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl">
+                <!-- Eyebrow -->
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-400/20 backdrop-blur-sm mb-6">
+                    <span class="flex w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                    <span class="text-xs font-bold text-brand-300 tracking-wide uppercase">Trusted SME Partner</span>
+                </div>
+
+                <h1
+                    class="text-[44px] md:text-[56px] lg:text-[72px] font-extrabold tracking-tight text-white leading-[1.05] mb-6">
+                    Fast, Compliant <br> Financing Backed By <br> UAE's Leading Banks
+                </h1>
+                <p
+                    class="mt-6 text-[18px] lg:text-[20px] font-medium text-gray-300 mb-10 max-w-[600px] leading-relaxed">
+                    Quick, compliant financing solutions with expert documentation and fast-track approvals, so you can
+                    focus on growing your business.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html"
+                        class="inline-flex justify-center items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-[16px] font-bold py-4 px-8 rounded-full transition-all shadow-glow hover:-translate-y-0.5">
+                        Start Your Application
+                        <i class="ph ph-arrow-up-right text-lg font-bold"></i>
+                    </a>
+                    <a href="loan.html"
+                        class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10 text-[16px] font-bold py-4 px-8 rounded-full transition-all hover:-translate-y-0.5">
+                        Calculate Loan
+                    </a>
+                </div>
+
+                <!-- Thumbnail Images row -->
+                <div class="mt-16 flex items-center gap-5">
+                    <div class="flex -space-x-4">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Office space"
+                            class="h-14 w-14 rounded-full object-cover border-2 border-gray-900 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Dubai Cityscape"
+                            class="h-14 w-14 rounded-full object-cover border-2 border-gray-900 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Business meeting"
+                            class="h-14 w-14 rounded-full object-cover border-2 border-gray-900 shadow-md">
+                    </div>
+                    <div class="text-sm font-medium text-gray-300 leading-snug">
+                        Trusted by <span class="text-white font-bold">500+</span><br>businesses in UAE
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section class="py-24 bg-gray-50 relative overflow-hidden">
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-16 md:flex md:items-end md:justify-between">
+                <div class="max-w-2xl">
+                    <h2 class="text-[36px] md:text-[44px] font-extrabold text-gray-900 mb-4 tracking-tight">Our
+                        Services. Built for Business.</h2>
+                    <p class="text-[18px] text-gray-600 font-medium">From banking to credit, everything your business
+                        needs to scale in one place.</p>
+                </div>
+            </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <!-- Service Card 1 -->
+    <div
+        class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-soft hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 flex flex-col items-start relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="ph ph-arrow-up-right text-xl text-brand-300"></i>
+        </div>
+        <div
+            class="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+            <i
+                class="ph ph-receipt text-2xl text-brand-600 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Merchant Financing</h3>
+        <p class="text-sm text-gray-600 mb-5 leading-snug flex-grow">Turn daily POS sales into
+            instant working capital with quick and flexible repayment options perfectly suited for retail.
+        </p>
+        <a href="nested/merchant-pos.html"
+            class="inline-flex items-center gap-1.5 text-brand-600 font-semibold text-sm group-hover:text-brand-700 transition-colors">
+            Learn More <i
+                class="ph ph-arrow-right font-bold mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+
+    <!-- Service Card 2 -->
+    <div
+        class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-soft hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 flex flex-col items-start relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="ph ph-arrow-up-right text-xl text-brand-300"></i>
+        </div>
+        <div
+            class="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+            <i
+                class="ph ph-buildings text-2xl text-brand-600 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Commercial Loans</h3>
+        <p class="text-sm text-gray-600 mb-5 leading-snug flex-grow">Access customized loan solutions
+            designed specifically to support small to medium business growth and expansion.</p>
+        <a href="nested/commercial-financing.html"
+            class="inline-flex items-center gap-1.5 text-brand-600 font-semibold text-sm group-hover:text-brand-700 transition-colors">
+            Learn More <i
+                class="ph ph-arrow-right font-bold mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+
+    <!-- Service Card 3 -->
+    <div
+        class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-soft hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 flex flex-col items-start relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="ph ph-arrow-up-right text-xl text-brand-300"></i>
+        </div>
+        <div
+            class="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+            <i
+                class="ph ph-currency-circle-dollar text-2xl text-brand-600 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Business Loans</h3>
+        <p class="text-sm text-gray-600 mb-5 leading-snug flex-grow">Unlock the capital you need to
+            expand operations, invest in new resources, and scale your operations with confidence.</p>
+        <a href="nested/business-account.html"
+            class="inline-flex items-center gap-1.5 text-brand-600 font-semibold text-sm group-hover:text-brand-700 transition-colors">
+            Learn More <i
+                class="ph ph-arrow-right font-bold mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+
+    <!-- Service Card 4 -->
+    <div
+        class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-soft hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 flex flex-col items-start relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="ph ph-arrow-up-right text-xl text-brand-300"></i>
+        </div>
+        <div
+            class="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+            <i
+                class="ph ph-chart-line-up text-2xl text-brand-600 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Working Capital</h3>
+        <p class="text-sm text-gray-600 mb-5 leading-snug flex-grow">Get quick approvals and highly
+            flexible financing to manage day-to-day cash flow effectively without stress.</p>
+        <a href="nested/working-capital.html"
+            class="inline-flex items-center gap-1.5 text-brand-600 font-semibold text-sm group-hover:text-brand-700 transition-colors">
+            Learn More <i
+                class="ph ph-arrow-right font-bold mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+</div>
+        </div>
+    </section>
+
+ <!-- Why Businesses Trust Us (Split Section) -->
+<section class="flex flex-col lg:flex-row w-full min-h-[600px] bg-white overflow-hidden">
+    
+    <!-- Left Side (Purple Gradient) -->
+    <div class="w-full lg:w-[45%] bg-brand-600 p-10 lg:p-16 xl:p-20 flex items-center relative overflow-hidden">
+        <!-- Decorative Background Elements for Depth -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500 rounded-full mix-blend-overlay filter blur-3xl opacity-40 translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-800 rounded-full mix-blend-overlay filter blur-3xl opacity-30 -translate-x-1/3 translate-y-1/3"></div>
+        
+        <div class="relative w-full max-w-lg z-10 text-center lg:text-left">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/10 mb-8">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-white/90 text-sm font-medium">Trusted by 500+ SMEs</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+                Why Businesses <br>
+                <span class="text-brand-200">Trust Us</span>
+            </h2>
+            
+            <p class="text-brand-100 font-medium text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0">
+                EasyCapital assists SMEs in identifying suitable business banking accounts and financing solutions from UAE banks and top financial institutions.
+            </p>
+            
+            <div>
+                <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold py-4 px-8 rounded-full transition-all hover:shadow-2xl hover:-translate-y-1 group">
+                    Get Started Today
+                    <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side (Card Grid) -->
+    <div class="w-full lg:w-[55%] bg-gray-50 p-10 lg:p-16 xl:p-20 flex items-center">
+        <div class="w-full max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Feature 1 -->
+            <div class="group bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+                    <i class="ph-fill ph-bank text-brand-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Effortless Banking</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">Skip the paperwork chaos. Our seamless onboarding connects you directly with top banking partners.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="group bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+                    <i class="ph-fill ph-target text-brand-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Tailored Solutions</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">Whether it's a loan or working capital, we match you with the best offers from leading institutions.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="group bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+                    <i class="ph-fill ph-file-text text-brand-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Fast & Compliant</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">We assist with preparing your financial applications to meet all bank requirements smoothly.</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="group bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5 group-hover:bg-brand-600 transition-colors duration-300">
+                    <i class="ph-fill ph-trend-up text-brand-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 mb-2 tracking-tight">Smart Decisions</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">With expert insights and personalized recommendations, we help businesses scale with confidence.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <!-- Why Choose Us? -->
+    <section class="py-24 bg-gray-50 border-y border-gray-100">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[36px] md:text-[44px] font-extrabold text-gray-900 mb-5 tracking-tight">The EasyCapital
+                    Advantage</h2>
+                <p class="text-[18px] font-medium text-gray-600 max-w-2xl mx-auto">Leverage cutting-edge technology and
+                    customer-focused strategies to create financing experiences that stand out.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div
+                    class="bg-white p-10 border border-gray-100 rounded-3xl shadow-sm hover:shadow-soft transition-all duration-300 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-500 transition-colors duration-300">
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-lightning text-brand-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 tracking-tight">Faster Onboarding</h3>
+                    <p class="text-[15px] font-medium text-gray-600 leading-relaxed">Reduce wait times and accelerate
+                        customer activation with our completely streamlined, digital-first process.</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div
+                    class="bg-white p-10 border border-gray-100 rounded-3xl shadow-sm hover:shadow-soft transition-all duration-300 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-500 transition-colors duration-300">
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-chart-line-up text-brand-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 tracking-tight">Scalable Solutions</h3>
+                    <p class="text-[15px] font-medium text-gray-600 leading-relaxed">Perfect for growing enterprises,
+                        our funding platform and banking network scales effortlessly with your business.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div
+                    class="bg-white p-10 border border-gray-100 rounded-3xl shadow-sm hover:shadow-soft transition-all duration-300 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-500 transition-colors duration-300">
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-star text-brand-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 tracking-tight">Premium Experience</h3>
+                    <p class="text-[15px] font-medium text-gray-600 leading-relaxed">Deliver personalized, VIP-level
+                        journeys that keep your management satisfied and focused on core operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit Evaluation Banner -->
+    <section class="py-24 bg-white px-4 sm:px-6 lg:px-8">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="rounded-[2.5rem] overflow-hidden liquid-gradient shadow-2xl relative border border-gray-800">
+                <div class="absolute inset-0 bg-black/10"></div>
+                <div class="relative flex flex-col md:flex-row items-center justify-between p-12 lg:p-16 gap-12">
+                    <div class="max-w-xl z-10 text-center md:text-left">
+                        <h2
+                            class="text-[36px] md:text-[48px] font-extrabold text-white mb-4 tracking-tight leading-[1.1]">
+                            Intelligent Credit <br> Evaluation Process</h2>
+                        <p class="text-brand-100 font-medium text-[18px] mb-10 leading-relaxed">Understand exactly how
+                            we evaluate your credit profile and assess eligibility for top-tier banking facilities.</p>
+                        <a href="nested/credit-assesment.html"
+                            class="inline-flex items-center gap-2 bg-white text-brand-900 hover:bg-gray-50 text-[16px] font-bold py-4 px-8 rounded-full transition-all shadow-lg hover:-translate-y-0.5">
+                            View Our Methodology
+                            <i class="ph ph-arrow-up-right font-bold"></i>
+                        </a>
+                    </div>
+
+                 <div class="relative w-72 h-56 bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex-shrink-0 flex flex-col items-center justify-between z-10 p-6 overflow-hidden">
+    <!-- Header -->
+    <div class="w-full flex items-center justify-between">
+        <span class="text-white/60 text-xs font-medium tracking-wider uppercase">Credit Score</span>
+        <div class="flex items-center gap-1.5">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
+            <span class="text-green-400 text-xs font-semibold">Excellent</span>
+        </div>
+    </div>
+
+    <!-- Gauge Container -->
+    <div class="relative w-full flex-1 flex items-end justify-center -mt-2">
+        <svg viewBox="0 0 200 110" class="w-full h-auto drop-shadow-2xl overflow-visible">
+            <defs>
+                <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ef4444" />
+                    <stop offset="50%" stop-color="#facc15" />
+                    <stop offset="100%" stop-color="#22c55e" />
+                </linearGradient>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <filter id="needleShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(0,0,0,0.5)" />
+                </filter>
+            </defs>
+            
+            <!-- Track background -->
+            <path d="M 25 100 A 75 75 0 0 1 175 100" fill="none" stroke="rgba(255,255,255,0.08)"
+                stroke-width="20" stroke-linecap="round" />
+            
+            <!-- Progress arc (dynamic - adjust stroke-dasharray for value) -->
+            <path d="M 25 100 A 75 75 0 0 1 175 100" fill="none" stroke="url(#gaugeGradient)" 
+                stroke-width="20" stroke-linecap="round" 
+                stroke-dasharray="236" stroke-dashoffset="59" 
+                class="transition-all duration-1000 ease-out" filter="url(#glow)" />
+            
+            <!-- Ticks -->
+            <g class="text-white/30">
+                <line x1="30" y1="85" x2="35" y2="80" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <line x1="100" y1="25" x2="100" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <line x1="170" y1="85" x2="165" y2="80" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Needle Group (rotate this for dynamic value) -->
+            <g transform="rotate(45, 100, 100)" class="transition-transform duration-700 ease-out" style="transform-origin: 100px 100px;">
+                <!-- Needle -->
+                <line x1="100" y1="100" x2="165" y2="100" stroke="#ffffff" stroke-width="3"
+                    stroke-linecap="round" filter="url(#needleShadow)" />
+                <!-- Needle circle -->
+                <circle cx="100" cy="100" r="10" fill="#0f172a" stroke="#ffffff" stroke-width="3" />
+                <circle cx="100" cy="100" r="3" fill="#ffffff" />
+            </g>
+        </svg>
+
+        <!-- Value Display -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <span class="text-4xl font-bold text-white tracking-tight drop-shadow-lg">750</span>
+            <span class="text-white/50 text-xs mt-0.5">out of 850</span>
+        </div>
+    </div>
+
+    <!-- Scale Labels -->
+    <div class="w-full flex justify-between px-4 mt-2">
+        <span class="text-white/40 text-[10px] font-medium">300</span>
+        <span class="text-white/40 text-[10px] font-medium">850</span>
+    </div>
+
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 opacity-50"></div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / Insights Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-gray-100 pb-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-[36px] md:text-[44px] font-extrabold text-gray-900 mb-4 tracking-tight">Insight That
+                        Hits Deeper.</h2>
+                    <p class="text-[18px] font-medium text-gray-600">Expert analysis and financial updates because
+                        surface level doesn't cut it anymore.</p>
+                </div>
+                <a href="blog.html"
+                    class="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white text-[15px] font-bold py-3 px-6 rounded-full transition-colors whitespace-nowrap shadow-sm">
+                    View All Articles <i class="ph ph-arrow-up-right font-bold"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <article class="group cursor-pointer flex flex-col">
+                    <div
+                        class="relative w-full h-[240px] mb-6 rounded-3xl overflow-hidden bg-gray-100 border border-gray-100">
+                        <div
+                            class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Compliance</div>
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Tax Form"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                    </div>
+                    <time class="text-[14px] text-brand-600 font-bold mb-3 block uppercase tracking-wide">Nov 28,
+                        2025</time>
+                    <h3
+                        class="text-[22px] font-bold text-gray-900 mb-4 leading-snug tracking-tight group-hover:text-brand-600 transition-colors">
+                        UAE SMEs: Tax & VAT Compliance for Faster Loan Approvals</h3>
+                    <div class="mt-auto pt-2">
+                        <a href="blog/blog1.html">
+                            <span
+                                class="inline-flex items-center gap-1.5 text-gray-900 font-bold text-[15px] group-hover:text-brand-600 transition-colors">
+                                Read Article <i
+                                    class="ph ph-arrow-right font-bold group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="group cursor-pointer flex flex-col">
+                    <div
+                        class="relative w-full h-[240px] mb-6 rounded-3xl overflow-hidden bg-gray-100 border border-gray-100">
+                        <div
+                            class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Funding</div>
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Reviewing documents"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                    </div>
+                    <time class="text-[14px] text-brand-600 font-bold mb-3 block uppercase tracking-wide">Oct 10,
+                        2025</time>
+                    <h3
+                        class="text-[22px] font-bold text-gray-900 mb-4 leading-snug tracking-tight group-hover:text-brand-600 transition-colors">
+                        SME Business Loan Secrets: How UAE SMEs Get Funded Fast</h3>
+                    <div class="mt-auto pt-2">
+                        <span
+                            class="inline-flex items-center gap-1.5 text-gray-900 font-bold text-[15px] group-hover:text-brand-600 transition-colors">
+                            Read Article <i
+                                class="ph ph-arrow-right font-bold group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="group cursor-pointer flex flex-col">
+                    <div
+                        class="relative w-full h-[240px] mb-6 rounded-3xl overflow-hidden bg-gray-100 border border-gray-100">
+                        <div
+                            class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Strategy</div>
+                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Business Meeting"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                    </div>
+                    <time class="text-[14px] text-brand-600 font-bold mb-3 block uppercase tracking-wide">Jul 28,
+                        2025</time>
+                    <h3
+                        class="text-[22px] font-bold text-gray-900 mb-4 leading-snug tracking-tight group-hover:text-brand-600 transition-colors">
+                        Taking a Business Loan? 5 Costly Mistakes You Can't Afford to Make</h3>
+                    <div class="mt-auto pt-2">
+                        <span
+                            class="inline-flex items-center gap-1.5 text-gray-900 font-bold text-[15px] group-hover:text-brand-600 transition-colors">
+                            Read Article <i
+                                class="ph ph-arrow-right font-bold group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Form Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-[1400px] mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl relative bg-brand-900">
+            <!-- Abstract background overlay for form section -->
+            <div class="absolute inset-0 form-bg-pattern opacity-20"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-700/80 to-brand-950/90 mix-blend-multiply"></div>
+
+            <div class="relative grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <!-- Text Content -->
+                <div class="lg:col-span-3 p-12 md:p-16 lg:p-24 flex flex-col justify-center">
+                    <div
+                        class="w-16 h-16 bg-brand-500/20 rounded-2xl backdrop-blur-md border border-brand-400/30 flex items-center justify-center mb-8">
+                        <i class="ph-fill ph-paper-plane-tilt text-white text-3xl"></i>
+                    </div>
+                    <h2 class="text-[40px] md:text-[52px] font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
+                        Simplify SME Banking with a Trusted Platform.</h2>
+                    <p class="text-brand-100 font-medium text-[18px] max-w-lg leading-relaxed mb-10">Fast-track loan
+                        approvals, credit access, and account onboarding powered by a platform trusted by UAE's leading
+                        banks.</p>
+
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div class="flex -space-x-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-brand-600 border-2 border-brand-900 flex items-center justify-center">
+                                <i class="ph-fill ph-check text-white"></i>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-brand-500 border-2 border-brand-900 flex items-center justify-center">
+                                <i class="ph-fill ph-shield-check text-white"></i>
+                            </div>
+                        </div>
+                        <span class="text-sm font-bold text-brand-200">100% Secure & Confidential</span>
+                    </div>
+                </div>
+
+                <!-- Form Container -->
+                <div class="lg:col-span-2 p-6 md:p-10 lg:p-12 flex items-center justify-center">
+                    <form
+                        class="w-full bg-white rounded-[2rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100 relative z-10">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-8 tracking-tight">Request Call Back</h3>
+                        <div class="space-y-5">
+                            <div>
+                                <label for="name"
+                                    class="block text-[13px] font-bold text-gray-700 mb-2 uppercase tracking-wide">Full
+                                    Name</label>
+                                <input type="text" id="name" placeholder="Jane Smith"
+                                    class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-[15px] font-medium rounded-xl py-3.5 px-4 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder-gray-400">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="email"
+                                        class="block text-[13px] font-bold text-gray-700 mb-2 uppercase tracking-wide">Work
+                                        Email</label>
+                                    <input type="email" id="email" placeholder="jane@company.com"
+                                        class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-[15px] font-medium rounded-xl py-3.5 px-4 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder-gray-400">
+                                </div>
+                                <div>
+                                    <label for="phone"
+                                        class="block text-[13px] font-bold text-gray-700 mb-2 uppercase tracking-wide">Phone
+                                        Number</label>
+                                    <input type="tel" id="phone" placeholder="+971 50 123 4567"
+                                        class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-[15px] font-medium rounded-xl py-3.5 px-4 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder-gray-400">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message"
+                                    class="block text-[13px] font-bold text-gray-700 mb-2 uppercase tracking-wide">How
+                                    can we help?</label>
+                                <textarea id="message" rows="3" placeholder="Tell us about your financing needs..."
+                                    class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-[15px] font-medium rounded-xl py-3.5 px-4 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder-gray-400 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-brand-600 hover:bg-brand-700 text-white text-[16px] font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-4">
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-24 pb-10 border-t border-gray-100">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+
+                <!-- Brand Info -->
+                <div class="lg:col-span-4 pr-4 md:pr-12">
+                    <div class="mb-6 flex items-center gap-2">
+
+                        <div class="flex flex-col">
+                            <img src="static/logo.png" alt="Logo" class="w-32">
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-[16px] font-medium leading-relaxed mb-8">
+                        Empowering SMEs in UAE with seamless Banking and transparent Financing solutions designed for
+                        growth.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-all">
+                            <span class="sr-only">Facebook</span>
+                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-all">
+                            <span class="sr-only">LinkedIn</span>
+                            <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-all">
+                            <span class="sr-only">Twitter</span>
+                            <i class="ph-fill ph-x-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services Links -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 mb-6 text-[16px] tracking-tight">Core Services</h4>
+                    <ul class="space-y-4">
+                        <li><a href="nested/business-account.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Business
+                                Accounts</a></li>
+                        <li><a href="nested/merchant-pos.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Merchant
+                                POS Financing</a></li>
+                        <li><a href="nested/commercial-financing.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Commercial
+                                Financing</a></li>
+                        <li><a href="nested/business-loan.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">SME
+                                Business Loans</a></li>
+                        <li><a href="nested/working-capital.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Working
+                                Capital</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-gray-900 mb-6 text-[16px] tracking-tight">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">About
+                                Us</a></li>
+                        <li><a href="blog.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Insights
+                                & Blog</a></li>
+                        <li><a href="loan.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Loan
+                                Calculator</a></li>
+                        <li><a href="carrer.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Careers</a>
+                        </li>
+                        <li><a href="contact.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Contact
+                                Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 mb-6 text-[16px] tracking-tight">Legal & Contact</h4>
+                    <ul class="space-y-4 mb-6">
+                        <li><a href="privacy-policy.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Privacy
+                                Policy</a></li>
+                        <li><a href="terms-condition.html"
+                                class="text-[15px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Terms
+                                & Conditions</a></li>
+                    </ul>
+                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="ph-fill ph-envelope-simple text-brand-600 text-lg"></i>
+                            <span class="text-[14px] font-bold text-gray-900">Contact Us</span>
+                        </div>
+                        <a href="contact.html"
+                            class="text-[14px] font-medium text-gray-600 hover:text-brand-600 transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-[14px] font-medium text-gray-500 text-center md:text-left">
+                    &copy; 2025 All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
