@@ -295,7 +295,7 @@
 
                 <!-- CTA Button (Desktop) -->
                 <div class="hidden lg:flex items-center">
-                    <a href="contact.html"
+                    <a href="../contact.html"
                         class="bg-purple-600 hover:bg-purple-700 text-white text-[15px] font-bold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2">
                         Free Consultation
                         <i class="ph ph-arrow-up-right text-base font-bold"></i>
@@ -572,42 +572,39 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+     <!-- Contact Form Section -->
     <section class="max-w-7xl mx-auto px-4 pb-24">
-        <!-- Visual design note adapted to layout -->
-        <div class="hero-pattern rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden">
-            <!-- Decorative overlay hint matching the 'coins' prompt suggestion (CSS implementation) -->
-            <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none text-[20rem] leading-none select-none">🪙</div>
-            
-            <div class="lg:w-1/2 text-white relative z-10">
+        <div class="hero-pattern rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 text-white">
                 <h2 class="text-4xl font-extrabold mb-6 leading-tight">Simplify SME Banking with a Trusted Platform</h2>
                 <p class="text-primary-100 text-sm font-bold leading-relaxed max-w-md opacity-90">
                     Fast-track loan approvals, credit access, and account onboarding powered by a platform trusted by leading banks.
                 </p>
             </div>
             
-            <div class="lg:w-1/2 w-full relative z-10">
+            <div class="lg:w-1/2 w-full">
                 <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl">
-                    <form class="space-y-5">
+                    <form class="space-y-5"  action="https://formspree.io/f/xzdkbden"
+  method="POST">
                         <div>
                             <label class="block text-[11px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">Name</label>
-                            <input type="text" placeholder="Jane Smith" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600">
+                            <input name="fullname" type="text" placeholder="Jane Smith" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label class="block text-[11px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">Email</label>
-                                <input type="email" placeholder="jane@gmail.com" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600">
+                                <input name="email" type="email" placeholder="jane@gmail.com" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">Phone Number</label>
-                                <input type="tel" placeholder="+1 (312) 343 342" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600">
+                                <input name="phone" type="tel" placeholder="+1 (312) 343 342" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600">
                             </div>
                         </div>
                         <div>
                             <label class="block text-[11px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">Message</label>
-                            <textarea rows="4" placeholder="Type your Message" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600"></textarea>
+                            <textarea name="comments" rows="4" placeholder="Type your Message" class="w-full bg-gray-50 border border-gray-100 rounded-lg px-5 py-3.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary-600"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-primary-600 text-white font-extrabold py-4 rounded-lg hover:bg-primary-700 transition shadow-lg">Free Consultation</button>
+                        <button type="submit" class="w-full bg-primary-600 text-white font-extrabold py-4 rounded-lg hover:bg-primary-700 transition shadow-lg">Submit</button>
                     </form>
                 </div>
             </div>
@@ -719,7 +716,7 @@
             <!-- Copyright -->
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-[14px] font-medium text-gray-500 text-center md:text-left">
-                    &copy; 2025 All rights reserved.
+                    &copy; 2026 All rights reserved.
                 </p>
             </div>
         </div>

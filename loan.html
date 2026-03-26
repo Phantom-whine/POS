@@ -676,11 +676,12 @@
 
                 <!-- Right Form -->
                 <div class="bg-white rounded-2xl p-7 shadow-xl">
-                    <form class="space-y-5">
+                    <form class="space-y-5"   action="https://formspree.io/f/xzdkbden"
+  method="POST">
                         <div>
                             <label
                                 class="block text-xs font-bold uppercase tracking-wide text-textDark mb-1.5">Name</label>
-                            <input type="text" placeholder="Jane Smith"
+                            <input type="text" placeholder="Jane Smith" name="fullname"
                                 class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none placeholder-gray-400 transition-all">
                         </div>
 
@@ -688,14 +689,14 @@
                             <div>
                                 <label
                                     class="block text-xs font-bold uppercase tracking-wide text-textDark mb-1.5">Email</label>
-                                <input type="email" placeholder="jane@gmail.com"
+                                <input type="email" placeholder="jane@gmail.com" name="email"
                                     class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none placeholder-gray-400 transition-all">
                             </div>
                             <div>
                                 <label
                                     class="block text-xs font-bold uppercase tracking-wide text-textDark mb-1.5">Phone
                                     Number</label>
-                                <input type="tel" placeholder="+1 (312) 343 342"
+                                <input type="tel" placeholder="+1 (312) 343 342" name="phone"
                                     class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none placeholder-gray-400 transition-all">
                             </div>
                         </div>
@@ -703,11 +704,11 @@
                         <div>
                             <label
                                 class="block text-xs font-bold uppercase tracking-wide text-textDark mb-1.5">Message</label>
-                            <textarea rows="3" placeholder="Type your Message"
+                            <textarea rows="3" placeholder="Type your Message" name="comments"
                                 class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none placeholder-gray-400 resize-none transition-all"></textarea>
                         </div>
 
-                        <button type="button"
+                        <button type="submit"
                             class="w-full py-3.5 bg-primary hover:bg-primaryHover text-white font-bold text-sm rounded-xl transition-colors shadow-md mt-2">
                             Submit Request
                         </button>
@@ -824,7 +825,7 @@
             <!-- Copyright -->
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-[14px] font-medium text-gray-500 text-center md:text-left">
-                    &copy; 2025 All rights reserved.
+                    &copy; 2026 All rights reserved.
                 </p>
             </div>
         </div>
